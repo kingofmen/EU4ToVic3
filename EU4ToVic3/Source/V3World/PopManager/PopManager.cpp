@@ -223,6 +223,16 @@ void V3::PopManager::generatePops(const ClayManager& clayManager, const Configur
 	const auto vanillaSuperRegionWeights = getVanillaSuperRegionalWeights(clayManager);			// superregion -> total weight
 	const auto superRegionProjectedCounts = getSuperRegionPopShapingProjections(clayManager); // superregion -> pre-normalized popshaping projection
 
+        const double popMultiplier = 1.0;
+        int worldPopCount = 0;
+        for (const auto& [name, count]: vanillaSuperRegionPopCount) {
+          worldPopCount += count;
+        }
+        double worldTotalWeight = 0;
+        for (const auto& [name, weight]: vanillaSuperRegionWeights) {
+          worldTotalWeight += weight * popMultiplier;
+        }
+
 	for (const auto& [stateName, state]: clayManager.getStates())
 	{
 		if (state->isSea() || state->isLake())
@@ -254,11 +264,11 @@ void V3::PopManager::generatePops(const ClayManager& clayManager, const Configur
 			if (vanillaSuperRegionWeights.contains(superRegion->getName()) && vanillaSuperRegionPopCount.contains(superRegion->getName()))
 			{
 				const auto totalSuperRegionWeight = vanillaSuperRegionWeights.at(superRegionName);
-				const auto popModifier = totalStateWeight / totalSuperRegionWeight;
+                                const auto popModifier = totalStateWeight / worldTotalWeight;
 
 				// Keep in mind - these popcounts are tied to states, not substates. A super-high-weight substate will take most of the pops however,
 				// so we're ok.
-				vanillaStatePopCount = static_cast<int>(std::round(vanillaSuperRegionPopCount.at(superRegionName) * popModifier));
+                                vanillaStatePopCount = static_cast<int>(std::round(worldPopCount * popModifier));
 				stateFactor =
 					 (vanillaStatePopCount - vanillaStatePops.at(stateName).getPopCount()) / static_cast<double>(vanillaStatePops.at(stateName).getPopCount());
 			}
