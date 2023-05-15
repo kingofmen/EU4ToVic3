@@ -223,14 +223,15 @@ void V3::PopManager::generatePops(const ClayManager& clayManager, const Configur
 	const auto vanillaSuperRegionWeights = getVanillaSuperRegionalWeights(clayManager);			// superregion -> total weight
 	const auto superRegionProjectedCounts = getSuperRegionPopShapingProjections(clayManager); // superregion -> pre-normalized popshaping projection
 
-        const double popMultiplier = 1.0;
+        // KoM population changes.
+        const double popMultiplier = 0.5;
         int worldPopCount = 0;
         for (const auto& [name, count]: vanillaSuperRegionPopCount) {
           worldPopCount += count;
         }
         double worldTotalWeight = 0;
         for (const auto& [name, weight]: vanillaSuperRegionWeights) {
-          worldTotalWeight += weight * popMultiplier;
+          worldTotalWeight += weight;
         }
 
 	for (const auto& [stateName, state]: clayManager.getStates())
@@ -245,6 +246,8 @@ void V3::PopManager::generatePops(const ClayManager& clayManager, const Configur
 		if (!superRegion)
 			continue;
 		const auto& superRegionName = superRegion->getName();
+                const auto& regionName = clayManager.getParentRegionName(stateName);
+                Log(LogLevel::Info) << "<> State " << stateName << " is in " << superRegionName << " " << *regionName;
 
 		auto minorityPopCount = 0;
 		if (vanillaMinorityStatePops.contains(stateName))
@@ -264,7 +267,7 @@ void V3::PopManager::generatePops(const ClayManager& clayManager, const Configur
 			if (vanillaSuperRegionWeights.contains(superRegion->getName()) && vanillaSuperRegionPopCount.contains(superRegion->getName()))
 			{
 				const auto totalSuperRegionWeight = vanillaSuperRegionWeights.at(superRegionName);
-                                const auto popModifier = totalStateWeight / worldTotalWeight;
+                                const auto popModifier = (popMultiplier * totalStateWeight) / worldTotalWeight;
 
 				// Keep in mind - these popcounts are tied to states, not substates. A super-high-weight substate will take most of the pops however,
 				// so we're ok.
