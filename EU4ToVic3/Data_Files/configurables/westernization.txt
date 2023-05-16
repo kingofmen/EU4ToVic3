@@ -46,7 +46,9 @@ link = {
 		german_speaking european_heritage beneluxian_culture_group francophone anglophone celtic_people 
 		iberian_culture_group italophone scandinavian_culture_group finnic hispanophone lusophone
 		african_settler british_culture_group italian_culture_group
-	}
+                middle_eastern_heritage arab_speaking
+		south_asian_heritage dravidian
+        }
 }
 
 link = {
@@ -75,7 +77,7 @@ link = {
 	westernization = 6
 	industry = 2
 	traits = {
-		middle_eastern_heritage arab_speaking iranian_turanian_culture_group
+		iranian_turanian_culture_group
 	}
 }
 
@@ -84,7 +86,7 @@ link = {
 	westernization = 5
 	industry = 2
 	traits = {
-		northeast_indian south_asian_heritage hindustani dravidian
+		northeast_indian hindustani 
 	}
 }
 
