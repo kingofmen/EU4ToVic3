@@ -43,7 +43,7 @@ infrastructure = {
 }
 
 military = {
-    weight = 12
+    weight = 6
 
     building_barracks
 
@@ -64,7 +64,7 @@ naval = {
 }
 
 farming = {
-    weight = 15
+    weight = 25
 
     building_rye_farm
     building_rice_farm
@@ -115,7 +115,7 @@ military_mining = {
 }
 
 plantation = {
-    weight = 15
+    weight = 25
 
     building_coffee_plantation
     building_cotton_plantation
@@ -153,7 +153,7 @@ shipwrights = {
 }
 
 paper_industry = {
-    weight = 1
+    weight = 2
 
     building_paper_mills
 
@@ -169,7 +169,7 @@ paper_industry = {
 }
 
 light_industry = {
-    weight = 16
+    weight = 12
 
     building_textile_mills
     building_furniture_manufacturies
