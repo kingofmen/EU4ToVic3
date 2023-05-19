@@ -377,14 +377,18 @@ void V3::PoliticalManager::setupTech()
 
 	const TechValues techValues(countries);
 	auto counter = 0;
+        // KoM Kustomisation: Equalise all techs.
+        const auto productionScore = 83.1;
+        const auto militaryScore = 80.1;
+        const auto societyScore = 80.1;
 	for (const auto& [tag, country]: countries)
 	{
 		if (!TechValues::isValidCountryForTechConversion(*country))
 			continue;
 
-		const auto productionScore = techValues.getProductionTechPercentile(tag);
-		const auto militaryScore = techValues.getMilitaryTechPercentile(tag);
-		const auto societyScore = techValues.getSocietyTechPercentile(tag);
+		//const auto productionScore = techValues.getProductionTechPercentile(tag);
+		//const auto militaryScore = techValues.getMilitaryTechPercentile(tag);
+		//const auto societyScore = techValues.getSocietyTechPercentile(tag);
 		country->setTechs(techSetupMapper, productionScore, militaryScore, societyScore);
 		country->setProductionTechPercentile(productionScore);
 		++counter;
