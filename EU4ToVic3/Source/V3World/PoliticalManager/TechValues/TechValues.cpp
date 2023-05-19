@@ -3,6 +3,7 @@
 #include "PoliticalManager/Country/Country.h"
 #include <algorithm>
 #include <ranges>
+#include "Log.h"
 
 V3::TechValues::TechValues(const std::map<std::string, std::shared_ptr<Country>>& countries)
 {
@@ -19,9 +20,6 @@ void V3::TechValues::gatherScores(const std::map<std::string, std::shared_ptr<Co
 		if (!isValidCountryForTechConversion(*country))
 			continue;
 		auto bonus = 0;
-		if (country->getProcessedData().westernized && country->getSourceCountry()->isGP())
-			bonus = 2.0;
-
 		productionScores.emplace(tag, getCountryProductionTech(*country) + bonus);
 		militaryScores.emplace(tag, getCountryMilitaryTech(*country) + bonus);
 		societyScores.emplace(tag, getCountrySocietyTech(*country) + bonus);
