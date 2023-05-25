@@ -99,7 +99,7 @@ industrial_mining = {
 military_mining = {
 	industrial = yes
 
-    weight = 18
+    weight = 4
 
     building_lead_mine
     building_sulfur_mine
@@ -138,7 +138,7 @@ plantation = {
 }
 
 whaling = {
-    weight = 0.4
+    weight = 1
 
     building_whaling_station
 

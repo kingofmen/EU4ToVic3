@@ -3,7 +3,7 @@
 
 # (0 <-> INTMAX)
 # Total # of Construction Points(CP) in the globe
-global_construction_points = 1500000
+global_construction_points = 2500000
 vn_global_construction_points = 871050 # Used only for mod: Voltaire's nightmare
 
 # (0 <-> 1)
