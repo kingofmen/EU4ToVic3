@@ -319,7 +319,7 @@ lawgroup_land_reform = {
 	}
 	law_tenant_farmers = {
 		forms = { theocracy tribal native }
-		ideas = {  indigenous_ideas }
+		ideas = {  indigenous_ideas economic_ideas }
 		reforms = { revolutionary_empire_reform revolutionary_principle_reform }
 	}
 	law_serfdom = {
@@ -360,7 +360,7 @@ lawgroup_economic_system = {
 	}
 	law_interventionism = {
 		forms = { republic }
-		ideas = { diplomatic_ideas economic_ideas influence_ideas infrastructure_ideas }
+		ideas = { diplomatic_ideas economic_ideas influence_ideas infrastructure_ideas FRI_ideas }
 		reforms = { livonian_diplomatic_monarchy venice_merchants_reform stability_principle_reform 
 			military_principle_reform revolutionary_principle_reform external_mission_reform
 			mission_to_civilize_reform commercial_mission_reform war_economy_reform thalassocracy_reform
@@ -377,7 +377,7 @@ lawgroup_economic_system = {
 	}
 	law_traditionalism = {
 		forms = { monarchy tribal native theocracy }
-		ideas = {}
+		ideas = { PAP_ideas }
 		reforms = { cossacks_reform imperial_principle_reform internal_mission_reform balanced_mission_reform 
 			native_seasonal_travel_reform
 		}
@@ -432,7 +432,7 @@ lawgroup_bureaucracy = {
 #law_peasant_levies -50
 lawgroup_army_model = {
 	law_national_militia = {
-		forms = {}
+		forms = { theocracy }
 		ideas = { defensive_ideas quantity_ideas mercenary_ideas }
 		reforms = { principality tsardom misl_confederacy_reform livonian_mercenary_monarchy 
 			legion_of_honor_reform sidhi_recruitment mansabdari_reform corvee_reform allotment_system
@@ -445,8 +445,8 @@ lawgroup_army_model = {
 		}
 	}
 	law_professional_army = {
-		forms = { republic theocracy }
-		ideas = { offensive_ideas }
+		forms = { republic }
+		ideas = { offensive_ideas quality_ideas }
 		reforms = { prussian_monarchy livonian_military_monarchy livonian_naval_monarchy 
 			grant_military_command_reform khalsa_reform prussian_republic_reform 
 			war_against_the_world_doctrine_reform open_naval_services_reform cutthroat_approach_reform
@@ -459,7 +459,7 @@ lawgroup_army_model = {
 	}
 	law_peasant_levies = {
 		forms = { monarchy tribal native }
-		ideas = { aristocracy_ideas administrative_ideas }
+		ideas = { aristocracy_ideas indigenous_ideas }
 		reforms = { ambrosian_republic imperial_diplomacy_reform crusading_kingdom_reform 
 			ottoman_conscription_reform absolute_shogunate_reform tysyatsky_reform defensive_stance_reform
 			mercenary_leadership_reform devshirme_system_reform janissary_military_reform wei_suo_system_reform
@@ -625,7 +625,7 @@ lawgroup_rights_of_women = {
 		forms = {}
 		ideas = { plutocracy_ideas innovativeness_ideas }
 		reforms = { legion_of_honor_reform equality_principle_reform universal_suffrage_reform 
-			sisterhood_of_jeanne_darc_reform 
+			sisterhood_of_jeanne_darc_reform revolutionary_republic_reform junior_revolutionary_republic_reform
 		}
 	}
 	law_no_womens_rights = {
@@ -673,7 +673,7 @@ lawgroup_taxation = {
 lawgroup_trade_policy = {
 	law_free_trade = {
 		forms = {}
-		ideas = { trade_ideas }
+		ideas = { trade_ideas FRI_ideas }
 		reforms = { livonian_trade_monarchy free_city trading_city smugglers_haven_reform 
 			black_market_consortium_reform empowered_quartermasters_reform master_smugglers_reform
 			neutral_ground_reform free_trade_reform commercial_trade_empire_reform
@@ -681,7 +681,7 @@ lawgroup_trade_policy = {
 	}
 	law_protectionism = {
 		forms = {}
-		ideas = { economic_ideas expansion_ideas }
+		ideas = { economic_ideas expansion_ideas NOV_ideas }
 		reforms = { colonial_government crown_colony_government private_enterprise_colony_government 
 			self_governing_colony_government dutch_republic reformer_state_reform external_mission_reform 
 			mission_to_civilize_reform pious_merchants_reform monastic_breweries_reform 
@@ -691,7 +691,7 @@ lawgroup_trade_policy = {
 	}
 	law_mercantilism = {
 		forms = { republic theocracy }
-		ideas = { indigenous_ideas maritime_ideas }
+		ideas = { maritime_ideas }
 		reforms = { enforce_trader_privileges_reform bengali_reform merchants_reform venice_merchants_reform 
 			open_naval_services_reform mission_to_kill_pirates_reform commercial_mission_reform
 			native_trading_with_foreigners_reform council_of_the_indies_reform curtail_the_burghers_reform
@@ -701,7 +701,7 @@ lawgroup_trade_policy = {
 	}
 	law_isolationism = {
 		forms = { monarchy tribal native }
-		ideas = { offensive_ideas }
+		ideas = { indigenous_ideas }
 		reforms = { pirate_republic_reform the_pirate_ways_reform war_against_the_world_doctrine_reform 
 			embedded_norse_government_reform war_economy_reform
 		}
