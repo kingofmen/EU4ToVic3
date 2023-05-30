@@ -218,7 +218,7 @@ void V3::PopManager::generatePops(const ClayManager& clayManager, const Configur
 	const auto superRegionProjectedCounts = getSuperRegionPopShapingProjections(clayManager); // superregion -> pre-normalized popshaping projection
 
         // KoM population changes.
-        const double popMultiplier = 0.5;
+        const double popMultiplier = 0.4;
         int worldPopCount = 0;
         for (const auto& [name, count]: vanillaSuperRegionPopCount) {
           worldPopCount += count;
@@ -241,7 +241,6 @@ void V3::PopManager::generatePops(const ClayManager& clayManager, const Configur
 			continue;
 		const auto& superRegionName = superRegion->getName();
                 const auto& regionName = clayManager.getParentRegionName(stateName);
-                Log(LogLevel::Info) << "<> State " << stateName << " is in " << superRegionName << " " << *regionName;
 
 		auto minorityPopCount = 0;
 		if (vanillaMinorityStatePops.contains(stateName))
