@@ -81,18 +81,20 @@ void outHistoryCountry(std::ostream& output, const V3::Country& country)
 			output << ig << " ";
 		output << "\n\t\t}\n";
 	}
-	for (const auto& ig: country.getProcessedData().ideaEffect.boostedInterestGroups)
-	{
-		output << "\t\tig:" << ig << " = {\n";
-		output << "\t\t\tset_ig_bolstering = yes\n ";
-		output << "\t\t}\n";
-	}
-	for (const auto& ig: country.getProcessedData().ideaEffect.suppressedInterestGroups)
-	{
-		output << "\t\tig:" << ig << " = {\n";
-		output << "\t\t\tset_ig_suppression = yes\n";
-		output << "\t\t}\n";
-	}
+        if (!country.humanPlayed()) {
+		for (const auto& ig: country.getProcessedData().ideaEffect.boostedInterestGroups)
+		{
+			output << "\t\tig:" << ig << " = {\n";
+			output << "\t\t\tset_ig_bolstering = yes\n ";
+			output << "\t\t}\n";
+		}
+		for (const auto& ig: country.getProcessedData().ideaEffect.suppressedInterestGroups)
+		{
+			output << "\t\tig:" << ig << " = {\n";
+			output << "\t\t\tset_ig_suppression = yes\n";
+			output << "\t\t}\n";
+		}
+        }
 	for (const auto& [ig, modifier]: country.getProcessedData().igIdeologyModifiers)
 	{
 		if (modifier.addedIdeologies.empty() && modifier.removedIdeologies.empty())
