@@ -10,6 +10,7 @@
 #include "DiplomacyParser/EU4Agreement.h"
 #include "Loaders/CountryDefinitionLoader/CountryDefinitionLoader.h"
 #include "Loaders/LawLoader/LawLoader.h"
+#include "Loaders/SuperRegionLoader/V3SuperRegion.h"
 #include "Log.h"
 #include "Mappers/CountryMapper/CountryMapper.h"
 #include "PopManager/PopManager.h"
@@ -1097,36 +1098,55 @@ void V3::PoliticalManager::incorporateStates(const mappers::CultureMapper& cultu
 	{
 		const auto capitalState = country->getProcessedData().capitalStateName;
 		const auto capitalRegionName = clayManager.getParentRegionName(capitalState);
+		if (!capitalRegionName)
+		{
+			continue;
+		}
+		const auto capitalSuperRegionName = clayManager.getParentSuperRegion(*capitalRegionName)->getName();
 
 		for (const auto& subState: country->getSubStates())
 		{
-			// If the state is in same region as capital, incorporate.
-
-			if (capitalRegionName)
+			// If the state is in the same region as the capital, incorporate.
+			const auto actualRegionName = clayManager.getParentRegionName(subState->getHomeStateName());
+			if (!actualRegionName)
 			{
-				const auto actualRegionName = clayManager.getParentRegionName(subState->getHomeStateName());
-				if (*actualRegionName == *capitalRegionName)
-				{
-					subState->setIncorporated(true);
-					++incorporated;
-					continue;
-				}
+				continue;
+			}
+			if (*actualRegionName == *capitalRegionName)
+			{
+				subState->setIncorporated(true);
+				++incorporated;
+				continue;
 			}
 
-			// Otherwise check if any of its homelands are not discriminated. If there's at least some accepted people (via homeland status), incorporate.
-
+			// Otherwise incorporate if either:
+			// a) Dominant culture is non-discriminated or
+			// b) Same superregion as capital and has at least some non-discriminated POPs.
 			bool match = false;
-			for (const auto& culture: subState->getHomeState()->getHomelands())
+			const auto dominant = subState->getSubStatePops().getDominantCulture();
+			const auto actualSuperRegionName = clayManager.getParentSuperRegion(*actualRegionName)->getName();
+			if (dominant && !country->isCultureDiscriminated(*dominant, cultureMapper))
 			{
-				if (!country->isCultureDiscriminated(culture, cultureMapper))
+				match = true;
+			}
+			else if (actualSuperRegionName == capitalSuperRegionName)
+			{
+				for (const auto& culture: subState->getHomeState()->getHomelands())
 				{
-					subState->setIncorporated(true);
+					if (country->isCultureDiscriminated(culture, cultureMapper))
+					{
+						continue;
+					}
 					match = true;
-					++incorporated;
 					break;
 				}
 			}
-			if (!match)
+			if (match)
+			{
+				subState->setIncorporated(true);
+				++incorporated;
+			}
+			else
 			{
 				subState->setIncorporated(false);
 				++unIncorporated;
