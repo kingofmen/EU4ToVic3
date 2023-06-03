@@ -207,7 +207,7 @@ lawgroup_citizenship = {
 		reforms = { austrian_dual_monarchy livonian_enlightened_monarchy two_treatises_reform 
 			enlightened_monarchy_reform revolutionary_republic_reform junior_revolutionary_republic_reform
 			peasants_republic american_republic federal_republic egalite_reform moral_principle_reform
-			enlightened_principle_reform revolutionary_principle_reform papacy_reform balanced_mission_reform
+			enlightened_principle_reform papacy_reform balanced_mission_reform
 			belief_and_unity_reform cultural_safe_haven_reform many_fingers_of_god_reform
 		}
 	}
@@ -216,8 +216,8 @@ lawgroup_citizenship = {
 		ideas = { indigenous_ideas religious_ideas }
 		reforms = { legislative_assembly_reform cultural_administration_reform attorney_general_reform 
 			political_principle_reform internal_mission_reform mission_to_protect_reform
-			harmonization_of_cultures_reform taxation_of_the_foreigners_reform penal_colonies_reform
-			standardized_millets_reform strengthened_parliament_reform millennialistic_theocracy_reform
+			harmonization_of_cultures_reform revolutionary_principle_reform taxation_of_the_foreigners_reform penal_colonies_reform
+			standardized_millets_reform strengthened_parliament_reform fraternite_reform millennialistic_theocracy_reform
 		}
 	}
 	law_national_supremacy = {
