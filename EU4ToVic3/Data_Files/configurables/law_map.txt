@@ -222,7 +222,7 @@ lawgroup_citizenship = {
 	}
 	law_national_supremacy = {
 		forms = { monarchy tribal native }
-		ideas = { theocracy_gov_ideas administrative_ideas }
+		ideas = { theocracy_gov_ideas }
 		reforms = { machiavellianistic_rule_reform deified_monarchy_reform millenarian_theocracy_reform 
 			teutonic_bishopric_reform holy_horde_reform militarized_crusader_order_reform
 			external_mission_reform mission_to_civilize_reform mission_to_kill_pirates_reform 
