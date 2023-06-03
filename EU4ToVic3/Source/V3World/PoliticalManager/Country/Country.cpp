@@ -1010,6 +1010,12 @@ bool V3::Country::isCultureDiscriminated(const std::string& culture, const mappe
 	if (processedData.cultures.contains(culture))
 		return false;
 
+        // KoM kustom: Blatant cheating to make Central Asian incorporation come out right.
+        if (tag == "W40" || tag == "UKR") {
+          if (culture == "tatar" || culture == "ugrian") {
+            return false;
+          }
+        }
 	if (processedData.discriminationLevel == ProcessedData::DISCRIMINATION_LEVEL::National_Supremacy)
 	{
 		for (const auto& primaryCulture: processedData.cultures)
