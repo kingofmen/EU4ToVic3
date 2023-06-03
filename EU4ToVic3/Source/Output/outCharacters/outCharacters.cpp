@@ -17,8 +17,8 @@ void outCharacter(std::ostream& output, const V3::Character& character)
 		output << "\t\t\truler = yes\n";
 	if (character.heir)
 		output << "\t\t\their = yes\n";
-	if (character.general)
-		output << "\t\t\tis_general = yes\n";
+	//if (character.general)
+        //output << "\t\t\tis_general = yes\n";
 	if (character.admiral)
 		output << "\t\t\tis_admiral = yes\n";
 	if (!character.commanderRank.empty())
