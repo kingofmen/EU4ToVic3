@@ -571,20 +571,18 @@ lawgroup_internal_security = {
 #law_closed_borders -50
 lawgroup_migration = {
 	law_no_migration_controls = {
-		forms = {}
-		ideas = { plutocracy_ideas trade_ideas }
-		reforms = { pirate_republic_reform new_world_exploitation_reform lockean_proviso_reform }
+		forms = { republic monarchy theocracy }
+		ideas = { plutocracy_ideas trade_ideas exploration_ideas expansion_ideas defensive_ideas }
+		reforms = { mission_to_civilize_reform pirate_republic_reform new_world_exploitation_reform lockean_proviso_reform empowered_quartermasters_reform imperial_principle_reform external_mission_reform }
 	}
 	law_migration_controls = {
-		forms = { republic }
-		ideas = { exploration_ideas expansion_ideas }
-		reforms = { empowered_quartermasters_reform imperial_principle_reform external_mission_reform 
-			mission_to_civilize_reform
-		}
+		forms = { }
+		ideas = { }
+		reforms = { }
 	}
 	law_closed_borders = {
-		forms = { monarchy tribal native theocracy }
-		ideas = { defensive_ideas }
+		forms = { tribal native }
+		ideas = { }
 		reforms = { the_pirate_ways_reform war_against_the_world_doctrine_reform internal_mission_reform }
 	}
 }
