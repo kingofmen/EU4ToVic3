@@ -845,6 +845,11 @@ void V3::Country::calculateWesternization(double topTech,
 			processedData.industryFactor = cultureMapper.getIndustryScoreForCulture(*processedData.cultures.begin()) / 5.0; // ranges 0.0-2.0
 		}
 	}
+	if (tag == "DFR")
+	{
+		// KoM blatant cheating for Darfur.
+		processedData.civLevel = 100;
+	}
 
 	if (processedData.civLevel < 0)
 	{
