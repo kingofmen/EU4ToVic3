@@ -207,7 +207,7 @@ lawgroup_citizenship = {
 		reforms = { austrian_dual_monarchy livonian_enlightened_monarchy two_treatises_reform 
 			enlightened_monarchy_reform revolutionary_republic_reform junior_revolutionary_republic_reform
 			peasants_republic american_republic federal_republic egalite_reform moral_principle_reform
-			enlightened_principle_reform papacy_reform balanced_mission_reform
+			enlightened_principle_reform balanced_mission_reform
 			belief_and_unity_reform cultural_safe_haven_reform many_fingers_of_god_reform
 		}
 	}
@@ -222,12 +222,12 @@ lawgroup_citizenship = {
 	}
 	law_national_supremacy = {
 		forms = { monarchy tribal native }
-		ideas = { theocracy_gov_ideas }
+		ideas = { theocracy_gov_ideas PAP_ideas }
 		reforms = { machiavellianistic_rule_reform deified_monarchy_reform millenarian_theocracy_reform 
 			teutonic_bishopric_reform holy_horde_reform militarized_crusader_order_reform
 			external_mission_reform mission_to_civilize_reform mission_to_kill_pirates_reform 
 			kingdom_of_god_reform combat_heresy_reform expel_heathens_reform faith_and_power_reform
-			religious_culture_reform religion_in_one_country_reform religious_permanent_revolution_reform
+			religious_culture_reform papacy_reform religion_in_one_country_reform religious_permanent_revolution_reform
 			all_under_tengri_reform japanese_divine_empire fifth_monarchists_reform 
 		}
 	}
