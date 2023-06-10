@@ -483,13 +483,13 @@ lawgroup_army_model = {
 #law_no_schools 0 !law_compulsory_primary_school
 lawgroup_education_system = {
 	law_public_schools = {
-		forms = { republic }
-		ideas = { innovativeness_ideas plutocracy_ideas quality_ideas }
+		forms = { }
+		ideas = {  }
 		reforms = { education_of_the_people_reform meritocratic_focus_reform }
 	}
 	law_private_schools = {
-		forms = { }
-		ideas = { naval_ideas economic_ideas influence_ideas administrative_ideas }
+		forms = { republic monarchy }
+		ideas = { naval_ideas economic_ideas influence_ideas administrative_ideas innovativeness_ideas plutocracy_ideas quality_ideas }
 		reforms = { }
 	}
 	law_religious_schools = {
