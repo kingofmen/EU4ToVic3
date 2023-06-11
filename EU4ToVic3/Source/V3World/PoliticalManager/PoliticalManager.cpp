@@ -514,7 +514,7 @@ void V3::PoliticalManager::convertDiplomacy(const std::vector<EU4::EU4Agreement>
 	Log(LogLevel::Info) << "-> Transcribing diplomatic agreements.";
 
 	const std::set<std::string> subjects = {"dominion", "protectorate", "tributary", "personal_union", "puppet", "vassal"};
-
+        std::map<std::string, int> tagSubjectAgreementMap;
 	for (auto& agreement: eu4Agreements)
 	{
 		const auto& EU4Tag1 = agreement.getOriginTag();
@@ -627,9 +627,32 @@ void V3::PoliticalManager::convertDiplomacy(const std::vector<EU4::EU4Agreement>
 
 			// and record overlordship locally for further use.
 			if (subjects.contains(newAgreement.type))
+			{
 				country2->second->setOverlord(V3Tag1);
+				tagSubjectAgreementMap[V3Tag2] = agreements.size() - 1;
+			}
 		}
 	}
+
+        int tweaks = 1;
+	while (tweaks > 0)
+	{
+		tweaks = 0;
+		for (const auto& [key, idx]: tagSubjectAgreementMap)
+		{
+			auto& agree = agreements[idx];
+                        const auto overTag = agree.first;
+                        if (tagSubjectAgreementMap.find(overTag) == tagSubjectAgreementMap.end())
+			{
+				  continue;
+			}
+                        const auto& overAgree = agreements[tagSubjectAgreementMap[overTag]];
+			Log(LogLevel::Info) << "  Found double overlordship: " << key << " -> " << overTag << " -> " << overAgree.first;
+                        tweaks++;
+                        agree.first = overAgree.first;
+		}
+	}
+
 	Log(LogLevel::Info) << "<> Transcribed " << agreements.size() << " agreements.";
 }
 
