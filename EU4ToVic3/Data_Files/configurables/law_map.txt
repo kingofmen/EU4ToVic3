@@ -374,7 +374,7 @@ lawgroup_economic_system = {
 	}
 	law_agrarianism = {
 		forms = { }
-		ideas = { aristocracy_ideas indigenous_ideas }
+		ideas = { aristocracy_ideas indigenous_ideas PAP_ideas }
 		reforms = { teutonic_bishopric_reform monastic_breweries_reform all_under_tengri_reform 
 			native_land_tradition_reform native_settle_down_reform lands_for_the_monasteries_reform
 			legacy_of_the_steppes_reform jap_gokaido_reform
@@ -382,7 +382,7 @@ lawgroup_economic_system = {
 	}
 	law_traditionalism = {
 		forms = { monarchy tribal native theocracy }
-		ideas = { PAP_ideas }
+		ideas = {  }
 		reforms = { cossacks_reform imperial_principle_reform internal_mission_reform balanced_mission_reform 
 			native_seasonal_travel_reform
 		}
