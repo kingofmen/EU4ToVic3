@@ -81,8 +81,17 @@ STATE_KIEV = {
     arable_land = 200
     arable_resources = { "bg_wheat_farms" "bg_livestock_ranches" }
     capped_resources = {
-        bg_coal_mining = 72
+        bg_coal_mining = 82
         bg_logging = 9
+	bg_iron_mining = 10
+    }
+    resource = {
+        type = "bg_oil_extraction"
+        undiscovered_amount = 10
+    }
+    resource = {
+        type = "bg_rubber"
+        undiscovered_amount = 10
     }
 }
 
@@ -260,6 +269,16 @@ STATE_NOVGOROD = {
     arable_resources = { "bg_rye_farms" "bg_livestock_ranches" }
     capped_resources = {
         bg_logging = 17
+	bg_iron_mining = 10
+	bg_coal_mining = 10
+    }
+    resource = {
+        type = "bg_oil_extraction"
+        undiscovered_amount = 10
+    }
+    resource = {
+        type = "bg_rubber"
+        undiscovered_amount = 10
     }
 }
 

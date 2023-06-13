@@ -487,6 +487,16 @@ STATE_WEST_COUNTRY = {
         bg_sulfur_mining = 60
         bg_logging = 6
         bg_fishing = 9
+	bg_iron_mining = 10
+	bg_coal_mining = 10
+    }
+    resource = {
+        type = "bg_oil_extraction"
+        undiscovered_amount = 10
+    }
+    resource = {
+        type = "bg_rubber"
+        undiscovered_amount = 10
     }
     naval_exit_id = 3028
 }
@@ -927,6 +937,16 @@ STATE_HOLLAND = {
     capped_resources = {
         bg_logging = 4
         bg_fishing = 12
+	bg_iron_mining = 10
+	bg_coal_mining = 10
+    }
+    resource = {
+        type = "bg_oil_extraction"
+        undiscovered_amount = 10
+    }
+    resource = {
+        type = "bg_rubber"
+        undiscovered_amount = 10
     }
     naval_exit_id = 3028
 }
@@ -1037,9 +1057,17 @@ STATE_BOHEMIA = {
     arable_land = 180
     arable_resources = { "bg_rye_farms" "bg_livestock_ranches" }
     capped_resources = {
-        bg_coal_mining = 48
-        bg_iron_mining = 45
+        bg_coal_mining = 58
+        bg_iron_mining = 55
         bg_logging = 17
+    }
+    resource = {
+        type = "bg_oil_extraction"
+        undiscovered_amount = 10
+    }
+    resource = {
+        type = "bg_rubber"
+        undiscovered_amount = 10
     }
 }
 
