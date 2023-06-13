@@ -74,6 +74,10 @@ void outHistoryCountry(std::ostream& output, const V3::Country& country)
 		output << "\t\t" << effect << " = yes\n";
 	for (const auto& law: country.getProcessedData().laws)
 		output << "\t\tactivate_law = law_type:" << law << "\n";
+	if (country.hasLaw("law_parliamentary_republic") || country.hasLaw("law_presidential_republic"))
+	{
+		output << "\tset_next_election_date = 1836.1.12\n";
+	}
 	if (!country.getProcessedData().ideaEffect.rulingInterestGroups.empty())
 	{
 		output << "\t\tset_ruling_interest_groups = {\n\t\t\t";
