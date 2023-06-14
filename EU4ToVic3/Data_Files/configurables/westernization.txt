@@ -55,7 +55,7 @@ link = {
 	# eastern european/slavic
 	westernization = 10
 	literacy = 4
-	industry = 4
+	industry = 5
 	traits = {
 		jewish_group jugoslav albanian_language romanian_culture_group hungarian_culture_group west_slavic 
 		baltic_culture_group east_slavic greek_culture caucasus_group thracian_heritage slavic south_slavic 
