@@ -30,7 +30,7 @@
 #}
 
 construction = {
-    weight = 0.15
+    weight = 0.75
 
     building_construction_sector
 }

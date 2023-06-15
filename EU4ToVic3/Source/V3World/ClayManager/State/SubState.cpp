@@ -340,7 +340,8 @@ double V3::SubState::calcBuildingIncorporationWeight(const Building& building, c
 	}
 	if (buildingGroup->getName() == "bg_military")
 		return 0.4;
-
+        if (buildingGroup->getName() == "bg_construction")
+		return 0.4;
 	while (buildingGroup->getParentName())
 	{
 		buildingGroup = buildingGroups.getBuildingGroupMap().at(*buildingGroup->getParentName());
