@@ -1261,7 +1261,7 @@ void V3::PoliticalManager::distributeColonialClaims(const ClayManager& clayManag
 	std::map<std::string, std::vector<std::shared_ptr<SubState>>> colonizableStates;
 	// And also all substates in a colonial region regardless of ownership.
 	std::map<std::string, std::vector<std::shared_ptr<SubState>>> manifestDestinyRegions;
-
+        /*
 	for (const auto& [stateName, state]: clayManager.getStates())
 	{
 		for (const auto& subState: state->getSubStates())
@@ -1323,6 +1323,6 @@ void V3::PoliticalManager::distributeColonialClaims(const ClayManager& clayManag
 			}
 		}
 	}
-
+        */
 	Log(LogLevel::Info) << "<> Distributed " << colonialCounter << " colonial claims and " << destinyCounter << " manifest destiny claims.";
 }
