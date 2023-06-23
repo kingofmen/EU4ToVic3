@@ -56,7 +56,27 @@ std::optional<std::string> mappers::LawMapper::grantLawFromGroup(const std::stri
 	if (!lawGroups.contains(lawGroup) || !country.getSourceCountry() || country.getSourceCountry()->getGovernment().empty())
 		return std::nullopt;
 
-	// prep all needed.
+        if (country.getSourceCountry()->getTag() == "KIE" && lawGroup == "lawgroup_colonization") {
+		return "law_colonial_resettlement";
+        }
+        if (country.getSourceCountry()->getTag() == "BOH" && lawGroup == "lawgroup_welfare") {
+		return "law_poor_laws";
+        }
+        if (country.getSourceCountry()->getTag() == "FRI" && lawGroup == "lawgroup_economic_system") {
+		return "law_laissez_faire";
+        }
+        if (country.getSourceCountry()->getTag() == "ENG")
+        {
+		if (lawGroup == "lawgroup_free_speech")
+		{
+			return "law_right_of_assembly";
+		}
+		if (lawGroup == "lawgroup_internal_security")
+		{
+			return "law_national_guard";
+		}
+        }
+        // prep all needed.
 	const auto& form = country.getSourceCountry()->getGovernment();
 	const auto& ideas = country.getSourceCountry()->getNationalIdeas();
 	const auto& reforms = country.getSourceCountry()->getReforms();
