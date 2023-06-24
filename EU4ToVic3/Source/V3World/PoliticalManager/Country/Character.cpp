@@ -80,6 +80,26 @@ V3::Character::Character(const EU4::Character& character,
 		const int seed = static_cast<int>(firstName[0]) * 11 + 51;
 		traits.emplace(characterTraitMapper.getGratisAgeism(seed));
 	}
+	if (tag == "BOH" && heir)
+	{
+		traits.clear();
+		traits.emplace("ambitious");
+	}
+	if (tag == "W63" && ruler)
+	{
+		traits.clear();
+		traits.emplace("innovative");
+	}
+	if (tag == "W40" && ruler)
+	{
+		traits.clear();
+		traits.emplace("innovative");
+	}
+	if (tag == "W40" && heir)
+	{
+		traits.clear();
+		traits.emplace("ambitious");
+	}
 
 	// Are we young?
 	if (age < 15)
