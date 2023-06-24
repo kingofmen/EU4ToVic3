@@ -72,6 +72,44 @@ std::map<std::string, mappers::IGIdeologyMod> mappers::IGIdeologiesMapping::alte
 	 const ReligionMapper& religionMapper,
 	 const V3::ClayManager& clayManager) const
 {
+	if (!country.getSourceCountry())
+		return incMods;
+        static std::set<std::string> seen;
+	const auto tag = country.getSourceCountry()->getTag();
+	if (seen.contains(tag))
+	{
+		return incMods;
+	}
+	if (country.humanPlayed())
+	{
+		auto newMods = incMods;
+		newMods.clear();
+		Log(LogLevel::Info) << "Human country " << country.getName("english");
+		if (tag == "ENG")
+		{
+			newMods["ig_devout"] = {{"ideology_egalitarian"}, {"ideology_patriarchal"}};
+                        newMods["ig_armed_forces"] = {{"ideology_proletarian"}, {"ideology_loyalist"}};
+                        newMods["ig_intelligentsia"] = {{"ideology_jingoist"}, {}};
+		}
+		if (tag == "BOH")
+		{
+			newMods["ig_landowners"] = {{"ideology_liberal"}, {"ideology_paternalistic", "ideology_patriarchal"}};
+		}
+		if (tag == "Z0M")
+		{
+			newMods["ig_rural_folk"] = {{}, {"ideology_isolationist"}};
+		}
+		if (tag == "FRI")
+		{
+			newMods["ig_industrialists"] = {{"ideology_anti_clerical"}, {}};
+		}
+		if (tag == "PAP")
+		{
+			newMods["ig_petty_bourgeoisie"] = {{"ideology_papal_paternalistic"}, {}};
+		}
+		seen.emplace(tag);
+		return newMods;
+        }
 	if (!matchCountry(country, cultureMapper, religionMapper, clayManager))
 		return incMods;
 
