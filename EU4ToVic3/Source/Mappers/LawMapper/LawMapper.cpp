@@ -59,8 +59,13 @@ std::optional<std::string> mappers::LawMapper::grantLawFromGroup(const std::stri
         if (country.getSourceCountry()->getTag() == "KIE" && lawGroup == "lawgroup_colonization") {
 		return "law_colonial_resettlement";
         }
-        if (country.getSourceCountry()->getTag() == "BOH" && lawGroup == "lawgroup_welfare") {
+        if (country.getSourceCountry()->getTag() == "BOH") {
+          if (lawGroup == "lawgroup_welfare") {
 		return "law_poor_laws";
+          }
+          if (lawGroup == "lawgroup_rights_of_women") {
+		return "law_no_womens_rights";
+          }
         }
         if (country.getSourceCountry()->getTag() == "FRI" && lawGroup == "lawgroup_economic_system") {
 		return "law_laissez_faire";
