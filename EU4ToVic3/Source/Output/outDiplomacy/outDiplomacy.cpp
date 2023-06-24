@@ -20,12 +20,13 @@ void outCountryRelations(std::ostream& output, const std::string& tag, const std
 {
 	output << "\tc:" << tag << " = {\n";
 	for (const auto& [target, relation]: relations)
-		output << "\t\tset_relations = { country = c:" << target << " value = " << relation.getRelations() << " }\n";
+		output << "\t\tset_relations = { country = c:" << target << " value = " << 1 << " }\n";
 	output << "\t}\n";
 }
 
 void outCountryRivals(std::ostream& output, const std::string& tag, const std::set<std::string>& rivals)
 {
+  /*
 	output << "\tc:" << tag << " = {\n";
 	for (const auto& rival: rivals)
 	{
@@ -35,6 +36,7 @@ void outCountryRivals(std::ostream& output, const std::string& tag, const std::s
 		output << "\t\t}\n";
 	}
 	output << "\t}\n";
+  */
 }
 
 void outCountryTruces(std::ostream& output, const std::string& tag, const std::map<std::string, int>& truces)
