@@ -1237,10 +1237,15 @@ void V3::PoliticalManager::designateTreatyPorts(const ClayManager& clayManager)
 			if (subState->getProvinces().size() != 1)
 				continue;
 
-			const auto& theProvince = subState->getProvinces().begin()->second;
+			const auto& pkey = subState->getProvinces().begin();
+                        if (pkey->first == "x808011") {
+                          continue;
+                        }
+			const auto& theProvince = pkey->second;
 
 			if (theProvince->isPort())
 			{
+                          Log(LogLevel::Info) << "Treaty port " << pkey->first << " -> " << theProvince->getName();
 				subState->setTreatyPort();
 				subState->vacateTreatyPortPops();
 				++count;
